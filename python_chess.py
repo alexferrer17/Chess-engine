@@ -12,8 +12,14 @@ while not board.is_game_over():
         move = board.parse_san(move)
         board.push(move)
         print("Move has been executed and is valid")
+        #Checks if the move is either check or checkmate
         print("Current board:")
         print(board)
+        if board.is_check():
+            print("Check!")
+        if board.is_checkmate():
+            print("You got checkmated you lost!")
+            break
     except ValueError:
         print("Invalid move")
 
@@ -22,7 +28,4 @@ with open("game.pgn", "w") as f:
     f.write(board.pgn)
 
 
-
-### Debuggin weather I can create a chess baord out of just the help of chatgpt
-
-#TODO: IMPLEMENT CHECK MATE AND CHECK
+#TODO: IMPLEMENT LELAA CHESS ENGINE
