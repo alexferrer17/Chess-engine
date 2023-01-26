@@ -80,4 +80,4 @@ while not board.is_game_over():
 #DAY 2: Impleneted check and checkmate feature and tried to implement a chess engine did not work
 #DAY 3: #TODO: IMPLEMENT LELAA CHESS ENGINE OR STOCKFISH!!
 #DAY 3: Debugging
-#DAY 4: IMPLEMENTED STOCKFISH bugg on second interaction
+#DAY 4: IMPLEMENTED STOCKFISH and solve all previous bugs
