@@ -7,8 +7,12 @@ Dependencies:
 
 Download Stockfish globally: https://stockfishchess.org/
 
-Download Stockfish for python by using:
+Download Stockfish for python library by using:
 pip install stockfish 
+
+Download the chess library: 
+pip install chess 
+
 
 
 
