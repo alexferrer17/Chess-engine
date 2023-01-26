@@ -6,9 +6,6 @@ from stockfish import Stockfish
 # Creates a new board
 board = chess.Board()
 
-# Start the engine
-engine = Stockfish(path="/opt/homebrew/Cellar/stockfish/15.1/bin/stockfish")
-
 # Initialize the moves list
 moves = []
 list_moves_uci = []
@@ -17,8 +14,10 @@ list_moves_uci = []
 # Validate the move
 while not board.is_game_over():
 
-    # Get the move from the User
+    # Start the engine
+    engine = Stockfish(path="/opt/homebrew/Cellar/stockfish/15.1/bin/stockfish")
 
+    # Get the move from the User
     print("Enter a move in SAN notation")
     user_move = input()
 
@@ -42,7 +41,11 @@ while not board.is_game_over():
         print(list_moves_uci)
 
         # Making the engine move
-        engine.make_moves_from_current_position(list_moves_uci)
+        try:
+            engine.make_moves_from_current_position(list_moves_uci)
+        except ValueError:
+            break
+
         engine_move = engine.get_best_move(1000)
         board_move_engine =  board.parse_san(engine_move)
         board.push(board_move_engine)
@@ -66,8 +69,8 @@ while not board.is_game_over():
         print("Invalid move")
 
 # Save the game in PGN notation
-with open("game.pgn", "w") as f:
-    f.write(board.pgn())
+#with open("game.pgn", "w") as f:
+    #f.write(board.pgn())
 
 
 
